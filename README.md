@@ -1,11 +1,4 @@
-### Build
-```
-docker build \
---tag transmission \
-https://github.com/iVirus/Docker-Transmission.git
-```
-
-### Run - Public Trackers
+### Public Trackers
 ```
 docker run \
 --rm \
@@ -21,10 +14,10 @@ docker run \
 --env "OPENVPN_USERNAME=**username**" \
 --env "OPENVPN_PASSWORD=**password**" \
 --env "TRANSMISSION_ALLOWED=192.168.*.*,172.18.*.*" \
-transmission
+bmoorman/transmission
 ```
 
-### Run - Private Trackers
+### Private Trackers
 ```
 docker run \
 --rm \
@@ -40,5 +33,5 @@ docker run \
 --env "OPENVPN_USERNAME=**username**" \
 --env "OPENVPN_PASSWORD=**password**" \
 --env "TRANSMISSION_ALLOWED=192.168.*.*,172.18.*.*" \
-transmission
+bmoorman/transmission
 ```
