@@ -10,6 +10,8 @@ fi
 exec $(which openvpn) \
     --config "/etc/openvpn/$OPENVPN_GATEWAY.ovpn" \
     --route-up /etc/openvpn/route.sh \
+    --ping-exit 60 \
+    --ping 10 \
     --up /etc/transmission/start.sh \
     --up-delay \
     --down /etc/transmission/stop.sh \
