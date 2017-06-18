@@ -30,7 +30,9 @@ for gateway in "${gateways[@]}"; do
             transmission-remote \
                 --port $port
 
-            sleep $((60 * 60 * 6))
+            min=$((60 * 60 * $TRANSMISSION_MIN_PORT_HRS))
+            max=$((60 * 60 * $TRANSMISSION_MAX_PORT_HRS))
+            sleep $((RANDOM % ($max - $min + 1) + $min))
         done
     fi
 done

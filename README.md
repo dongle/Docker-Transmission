@@ -3,6 +3,7 @@
 docker run \
 --rm \
 --detach \
+--init \
 --privileged \
 --name transmission-public \
 --network backend \
@@ -22,6 +23,7 @@ bmoorman/transmission
 docker run \
 --rm \
 --detach \
+--init \
 --privileged \
 --name transmission-private \
 --network backend \

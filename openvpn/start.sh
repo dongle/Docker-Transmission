@@ -20,6 +20,8 @@ exec $(which openvpn) \
     --setenv OPENVPN_LOCAL_NETWORK $OPENVPN_LOCAL_NETWORK \
     --setenv TRANSMISSION_ALLOWED $TRANSMISSION_ALLOWED \
     --setenv TRANSMISSION_CACHE $TRANSMISSION_CACHE \
+    --setenv TRANSMISSION_MIN_PORT_HRS $TRANSMISSION_MIN_PORT_HRS \
+    --setenv TRANSMISSION_MAX_PORT_HRS $TRANSMISSION_MAX_PORT_HRS \
     --script-security 2 \
     --cd /etc/openvpn \
     --log /var/log/openvpn.log
