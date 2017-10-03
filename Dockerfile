@@ -24,6 +24,7 @@ RUN echo 'deb http://ppa.launchpad.net/transmissionbt/ppa/ubuntu xenial main' > 
     rm --recursive --force /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ADD https://www.privateinternetaccess.com/openvpn/openvpn.zip /etc/openvpn/
+#ADD https://www.privateinternetaccess.com/openvpn/openvpn-strong.zip /etc/openvpn/
 COPY openvpn/ /etc/openvpn/
 COPY transmission/ /etc/transmission/
 
