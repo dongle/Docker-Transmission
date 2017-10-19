@@ -14,7 +14,6 @@ docker run \
 --dns 209.222.18.218 \
 --env "OPENVPN_USERNAME=**username**" \
 --env "OPENVPN_PASSWORD=**password**" \
---env "TRANSMISSION_ALLOWED=192.168.*.*,172.18.*.*" \
 bmoorman/transmission
 ```
 
@@ -34,6 +33,5 @@ docker run \
 --dns 209.222.18.218 \
 --env "OPENVPN_USERNAME=**username**" \
 --env "OPENVPN_PASSWORD=**password**" \
---env "TRANSMISSION_ALLOWED=192.168.*.*,172.18.*.*" \
 bmoorman/transmission
 ```
