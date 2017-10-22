@@ -11,7 +11,7 @@ RUN echo 'deb http://ppa.launchpad.net/transmissionbt/ppa/ubuntu xenial main' > 
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 365C5CA1 && \
     apt-get update && \
     apt-get dist-upgrade --yes && \
-    apt-get install --yes --no-install-recommends tzdata locales ca-certificates transmission-daemon transmission-cli curl jq unrar openssh-client && \
+    apt-get install --yes --no-install-recommends tzdata locales ca-certificates transmission-daemon transmission-cli unrar openssh-client && \
     locale-gen en_US.UTF-8 && \
     apt-get autoremove --yes --purge && \
     apt-get clean && \
