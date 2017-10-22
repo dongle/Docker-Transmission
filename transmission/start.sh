@@ -5,6 +5,4 @@ exec $(which transmission-daemon) \
     --foreground \
     --config-dir /config \
     --download-dir /data/complete \
-    --no-portmap &
-
-/etc/transmission/opts.sh &
+    --no-portmap

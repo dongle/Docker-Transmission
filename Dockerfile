@@ -2,8 +2,7 @@ FROM ubuntu:xenial
 
 ENV TZ="America/Denver" \
     LANG="en_US.UTF-8" \
-    TRANSMISSION_ALLOWED="192.168.*.*,172.18.*.*" \
-    TRANSMISSION_CACHE="128"
+    TRANSMISSION_ALLOWED="192.168.*.*,172.18.*.*"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
