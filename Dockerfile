@@ -1,20 +1,13 @@
-FROM ubuntu:xenial
+FROM bmoorman/ubuntu
 
-ENV TZ="America/Denver" \
-    LANG="en_US.UTF-8" \
-    LANGUAGE="en_US.UTF-8" \
-    LC_ALL="en_US.UTF-8" \
-    TRANSMISSION_ALLOWED="192.168.*.*,172.18.*.*"
-
-ARG DEBIAN_FRONTEND="noninteractive"
+ENV TRANSMISSION_ALLOWED="192.168.*.*,172.18.*.*"
 
 RUN echo 'deb http://ppa.launchpad.net/transmissionbt/ppa/ubuntu xenial main' > /etc/apt/sources.list.d/transmission.list && \
     echo 'deb-src http://ppa.launchpad.net/transmissionbt/ppa/ubuntu xenial main' >> /etc/apt/sources.list.d/transmission.list && \
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 365C5CA1 && \
     apt-get update && \
     apt-get dist-upgrade --yes && \
-    apt-get install --yes --no-install-recommends tzdata locales ca-certificates transmission-daemon transmission-cli unrar openssh-client && \
-    locale-gen en_US.UTF-8 && \
+    apt-get install --yes --no-install-recommends transmission-daemon transmission-cli unrar openssh-client && \
     apt-get autoremove --yes --purge && \
     apt-get clean && \
     rm --recursive --force /var/lib/apt/lists/* /tmp/* /var/tmp/*
