@@ -1,5 +1,5 @@
 #!/bin/bash
-exec $(which transmission-daemon) \
+exec transmission-daemon \
     --allowed 127.*.*.*,$TRANSMISSION_ALLOWED \
     --incomplete-dir /data/incomplete \
     --foreground \
