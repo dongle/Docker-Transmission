@@ -1,6 +1,6 @@
 FROM bmoorman/ubuntu
 
-ENV TRANSMISSION_ALLOWED="192.168.*.*"
+ENV TRANSMISSION_ALLOWED="192.168.*.*,172.17.*.*"
 
 ARG DEBIAN_FRONTEND="noninteractive"
 
