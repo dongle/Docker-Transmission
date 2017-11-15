@@ -19,7 +19,7 @@ RUN echo 'deb http://ppa.launchpad.net/transmissionbt/ppa/ubuntu xenial main' > 
 
 COPY transmission/ /etc/transmission/
 
-VOLUME /data /config
+VOLUME /config /data
 
 EXPOSE 9091
 
