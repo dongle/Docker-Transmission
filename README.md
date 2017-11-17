@@ -23,5 +23,5 @@ docker run \
 --volume transmission-private-config:/config \
 --volume transmission-private-data:/data \
 --publish 9092:9091 \
-bmoorman/transmission:no-openvpn
+bmoorman/transmission:novpn
 ```
