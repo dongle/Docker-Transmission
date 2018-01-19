@@ -9,6 +9,7 @@ RUN echo 'deb http://ppa.launchpad.net/transmissionbt/ppa/ubuntu xenial main' > 
  && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 365C5CA1 \
  && apt-get update \
  && apt-get install --yes --no-install-recommends \
+    curl \
     openssh-client \
     transmission-cli \
     transmission-daemon \
@@ -24,3 +25,5 @@ VOLUME /config /data
 EXPOSE 9091
 
 CMD ["/etc/transmission/start.sh"]
+
+HEALTHCHECK --interval=60s --timeout=5s CMD curl --silent --location --fail http://localhost:9091/ > /dev/null || exit 1
