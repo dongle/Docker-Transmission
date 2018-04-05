@@ -1,4 +1,4 @@
-FROM bmoorman/ubuntu
+FROM bmoorman/ubuntu:xenial
 
 ENV TRANSMISSION_ALLOWED="192.168.*.*,172.17.*.*"
 
