@@ -1,6 +1,7 @@
 FROM bmoorman/ubuntu:xenial
 
-ENV TRANSMISSION_ALLOWED="192.168.*.*,172.17.*.*"
+ENV TRANSMISSION_PORT="9091" \
+    TRANSMISSION_ALLOWED="192.168.*.*,172.17.*.*"
 
 ARG DEBIAN_FRONTEND="noninteractive"
 
@@ -22,8 +23,8 @@ COPY transmission/ /etc/transmission/
 
 VOLUME /config /data
 
-EXPOSE 9091
+EXPOSE ${TRANSMISSION_PORT}
 
 CMD ["/etc/transmission/start.sh"]
 
-HEALTHCHECK --interval=60s --timeout=5s CMD curl --silent --location --fail http://localhost:9091/ > /dev/null || exit 1
+HEALTHCHECK --interval=60s --timeout=5s CMD curl --head --insecure --silent --show-error --fail "http://localhost:${TRANSMISSION_PORT}/" || exit 1
