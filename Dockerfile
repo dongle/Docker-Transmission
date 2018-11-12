@@ -1,12 +1,12 @@
-FROM bmoorman/ubuntu:xenial
+FROM bmoorman/ubuntu:bionic
 
 ENV TRANSMISSION_PORT="9091" \
     TRANSMISSION_ALLOWED="192.168.*.*,172.17.*.*"
 
 ARG DEBIAN_FRONTEND="noninteractive"
 
-RUN echo 'deb http://ppa.launchpad.net/transmissionbt/ppa/ubuntu xenial main' > /etc/apt/sources.list.d/transmission.list \
- && echo 'deb-src http://ppa.launchpad.net/transmissionbt/ppa/ubuntu xenial main' >> /etc/apt/sources.list.d/transmission.list \
+RUN echo 'deb http://ppa.launchpad.net/transmissionbt/ppa/ubuntu bionic main' > /etc/apt/sources.list.d/transmission.list \
+ && echo 'deb-src http://ppa.launchpad.net/transmissionbt/ppa/ubuntu bionic main' >> /etc/apt/sources.list.d/transmission.list \
  && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 365C5CA1 \
  && apt-get update \
  && apt-get install --yes --no-install-recommends \
