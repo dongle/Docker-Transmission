@@ -4,5 +4,6 @@ exec $(which transmission-daemon) \
     --incomplete-dir /data/incomplete \
     --foreground \
     --config-dir /config \
+    --port ${TRANSMISSION_PORT} \
     --download-dir /data/complete \
     --no-portmap

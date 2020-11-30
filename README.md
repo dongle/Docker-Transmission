@@ -5,13 +5,13 @@
 docker run \
 --detach \
 --name transmission \
---dns 209.222.18.222 \
---dns 209.222.18.218 \
+--dns 1.1.1.1 \
+--dns 1.0.0.1 \
 --cap-add NET_ADMIN \
 --device /dev/net/tun \
 --publish 9091:9091 \
---env "OPENVPN_USERNAME=**username**" \
---env "OPENVPN_PASSWORD=**password**" \
+--env "PIA_USER=**username**" \
+--env "PIA_PASS=**password**" \
 --volume transmission-config:/config \
 --volume transmission-data:/data \
 bmoorman/transmission:latest
@@ -25,8 +25,8 @@ services:
     image: bmoorman/transmission:latest
     container_name: transmission
     dns:
-      - 209.222.18.222
-      - 209.222.18.218
+      - 1.1.1.1
+      - 1.0.0.1
     cap_add:
       - NET_ADMIN
     devices:
@@ -34,8 +34,8 @@ services:
     ports:
       - "9091:9091"
     environment:
-      - OPENVPN_USERNAME=**username**
-      - OPENVPN_PASSWORD=**password**
+      - PIA_USER=**username**
+      - PIA_PASS=**password**
     volumes:
       - transmission-config:/config
       - transmission-data:/data
@@ -75,3 +75,13 @@ volumes:
   transmission-config:
   transmission-data:
 ```
+
+### Environment Variables
+|Variable|Description|Default|
+|--------|-----------|-------|
+|TZ|Sets the timezone|`America/Denver`|
+|PIA_USER|PIA username|`<empty>`|
+|PIA_PASS|PIA password|`<empty>`|
+|LOCAL_NETWORK|Keep local traffic... local|`192.168.0.0/16`|
+|TRANSMISSION_PORT|Sets which port transmission listens on|`9091`|
+|TRANSMISSION_ALLOWED|Sets which networks to allow|`192.168.*.*,172.17.*.*`|

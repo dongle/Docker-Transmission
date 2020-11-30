@@ -1,9 +1,9 @@
 FROM bmoorman/ubuntu:bionic
 
+ARG DEBIAN_FRONTEND="noninteractive"
+
 ENV TRANSMISSION_PORT="9091" \
     TRANSMISSION_ALLOWED="192.168.*.*,172.17.*.*"
-
-ARG DEBIAN_FRONTEND="noninteractive"
 
 RUN echo 'deb http://ppa.launchpad.net/transmissionbt/ppa/ubuntu bionic main' > /etc/apt/sources.list.d/transmission.list \
  && echo 'deb-src http://ppa.launchpad.net/transmissionbt/ppa/ubuntu bionic main' >> /etc/apt/sources.list.d/transmission.list \
