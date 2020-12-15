@@ -3,7 +3,7 @@ FROM ubuntu:focal
 ARG DEBIAN_FRONTEND="noninteractive"
 
 ENV TRANSMISSION_PORT="9091" \
-    TRANSMISSION_ALLOWED="192.168.*.*,172.17.*.*"
+    TRANSMISSION_ALLOWED="192.168.*.*,172.17.*.*" \
     TZ=America/New_York \
     LANG=en_US.UTF-8 \
     LC_ALL=en_US.UTF-8 \
@@ -19,8 +19,7 @@ RUN apt-get update \
  && locale-gen en_US.UTF-8 \
  && apt-get autoremove --yes --purge \
  && apt-get clean \
- && rm --recursive --force /var/lib/apt/lists/* /tmp/* /var/tmp/*
-echo 'deb http://ppa.launchpad.net/transmissionbt/ppa/ubuntu focal main' > /etc/apt/sources.list.d/transmission.list \
+ && echo 'deb http://ppa.launchpad.net/transmissionbt/ppa/ubuntu focal main' > /etc/apt/sources.list.d/transmission.list \
  && echo 'deb-src http://ppa.launchpad.net/transmissionbt/ppa/ubuntu focal main' >> /etc/apt/sources.list.d/transmission.list \
  && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 976B5901365C5CA1 \
  && apt-get update \

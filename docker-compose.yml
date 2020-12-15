@@ -1,0 +1,52 @@
+version: "3.7"
+services:
+  transmission:
+    image: porphyrin/transmission:novpn
+    container_name: transmission
+    environment:
+      TZ: "America/New_York"
+      TRANSMISSION_WEB_HOME: "/twc"
+    ports:
+      - "9091:9091"
+      - "51413:51413"
+      - "51413:51413/udp"
+    volumes:
+      - type: bind
+        source: /docker/Transmission/config
+        target: /config
+      - type: bind
+        source: /docker/Transmission/data
+        target: /data
+      - type: bind
+        source: /docker/Transmission/twc
+        target: /twc
+      - type: bind
+        source: /usbshare1/Downloads
+        target: /downloads
+      - type: bind
+        source: /Games
+        target: /Games
+      - type: bind
+        source: /usbshare2/MusicTorrents
+        target: /Music
+      - type: bind
+        source: "/usbshare2/ROM sets"
+        target: /Roms
+      - type: bind
+        source: /usbshare2/PNO
+        target: /PNO
+      - type: bind
+        source: /usbshare1/Anime
+        target: /Anime
+      - type: bind
+        source: /usbshare1/Movies
+        target: /Movies
+      - type: bind
+        source: /usbshare1/Performance
+        target: /Performance
+      - type: bind
+        source: /usbshare1/Books
+        target: /Books
+      - type: bind
+        source: "/usbshare1/Shorts & Video Art"
+        target: /VideoArt
